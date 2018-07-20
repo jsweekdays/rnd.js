@@ -1,9 +1,9 @@
-import './fonts'
+import '../fonts'
 import React from 'react'
-import BgWithLogo from './components/BgWithLogo'
+import BgWithLogo from '../components/BgWithLogo'
 import styled from 'styled-components'
 import { width } from 'styled-system'
-import { Grid, Box } from './Grid'
+import { Grid, Box } from '../Grid'
 
 const Card = styled.div`
   width: 1104px;

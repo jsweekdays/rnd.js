@@ -20,7 +20,12 @@ class Size extends Component {
 
   render () {
     const { children } = this.props
-    return children(this.state)
+
+    if (typeof children === 'function') {
+      return children(this.state)
+    }
+
+    return null
   }
 }
 

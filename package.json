@@ -4,21 +4,33 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "x0 src/index.js",
-    "build": "x0 build src/index.js"
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d ./dist",
+    "dev": "x0 ./src/pages",
+    "build": "x0 build ./src/pages"
   },
   "keywords": [],
   "author": "",
+  "homepage": "https://jsweekdays.github.io/rnd.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/jsweekdays/rnd.js.git"
+  },
+  "x0": {
+    "basename": "/rnd.js"
+  },
   "license": "ISC",
   "dependencies": {
+    "@compositor/x0": "^6.0.0",
+    "gh-pages": "^1.2.0",
     "react": "^16.4.1",
     "react-dom": "^16.4.1",
     "react-powerplug": "^1.0.0-rc.1",
     "styled-components": "^3.3.3",
-    "styled-system": "^3.0.1"
+    "styled-system": "^3.0.1",
+    "file-loader": "^1.1.11"
   },
   "devDependencies": {
-    "@compositor/x0": "^6.0.0",
     "babel-eslint": "8.0.1",
     "eslint": "4.19.1",
     "eslint-config-standard": "^11.0.0",
@@ -27,7 +39,6 @@
     "eslint-plugin-node": "^6.0.1",
     "eslint-plugin-promise": "^3.8.0",
     "eslint-plugin-react": "^7.10.0",
-    "eslint-plugin-standard": "^3.1.0",
-    "file-loader": "^1.1.11"
+    "eslint-plugin-standard": "^3.1.0"
   }
 }
