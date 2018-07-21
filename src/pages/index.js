@@ -1,54 +1,44 @@
 import '../fonts'
 import React from 'react'
+import { Flex, Box } from 'grid-styled'
 import BgWithLogo from '../components/BgWithLogo'
-import styled from 'styled-components'
-import { width } from 'styled-system'
-import { Grid, Box } from '../Grid'
+import Card from '../components/Card'
+import Title from '../components/Title'
+import Button from '../components/Button'
+import { ThemeProvider } from 'styled-components'
 
-const Card = styled.div`
-  width: 1104px;
-  margin: auto;
-  background-color: #fff;
-  box-shadow: 32px 46px 0px rgba(15, 0, 50, 0.15);
+const theme = {
+  colors: {
+    primary: '#6624FF',
+    secondary: '#FF3357',
+    tertiary: 'rgba(101, 37, 255, 0.2);',
+    // tertiary: '#F6F7FD',
 
-  border: 2px solid #6624ff;
+    font: '#262626',
+    bg: '#fff'
+  },
 
-  @media (max-width: 780px) {
-    border: 1px solid #6624ff;
-  }
-
-  ${width};
-`
-
-const Text = styled.div`
-  font-family: Gotham Pro;
-  line-height: 61px;
-  font-size: 40px;
-  text-transform: uppercase;
-  font-weight: 800;
-`
+  shadows: [
+    '8px 8px 0px rgba(15, 0, 50, 0.15)',
+    '16px 16px 0px rgba(15, 0, 50, 0.15)',
+    '24px 24px 0px rgba(15, 0, 50, 0.15)'
+  ]
+}
 
 const App = () => (
-  <BgWithLogo>
-    <Card width={[1, 432, 656, 880, 1104]}>
-      <Grid
-        gridTemplateColumns={[
-          '1fr',
-          'repeat(4, 96px)',
-          'repeat(6, 96px)',
-          'repeat(8, 96px)',
-          'repeat(10, 96px)'
-        ]}
-        gridColumnGap='16px'
-      >
-        <Box py={186} gridColumn='1 / -1' justifySelf='center'>
-          <Text>хочешь выступить?</Text>
-        </Box>
-      </Grid>
-    </Card>
+  <ThemeProvider theme={theme}>
+    <BgWithLogo>
+      <Card>
+        <Title>cкоро</Title>
 
-    <div style={{ paddingBottom: '1000px' }} />
-  </BgWithLogo>
+        <Box py={182} />
+      </Card>
+
+      <Flex w='100%' py='90vh' justifyContent='center'>
+        <Button>Стань спикером</Button>
+      </Flex>
+    </BgWithLogo>
+  </ThemeProvider>
 )
 
 export default App

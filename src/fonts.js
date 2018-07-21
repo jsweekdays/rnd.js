@@ -19,13 +19,6 @@ injectGlobal`
         url(${bold});
     font-weight: 800; 
   }
-
-  @font-face { 
-    font-family: Gotham Pro; 
-    src: local("GothamPro-Bold"), local("Gotham Pro Bold"),
-        url(${bold});
-    font-weight: 800; 
-  } 
   
   @font-face { 
     font-family: Gotham Pro; 

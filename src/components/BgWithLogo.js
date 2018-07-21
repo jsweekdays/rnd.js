@@ -1,8 +1,10 @@
 import React from 'react'
-import styled from 'styled-components'
+import styled, { withTheme } from 'styled-components'
+import { responsiveStyle, themeGet } from 'styled-system'
 import Size from './Size'
 import Scroll from './Scroll'
 import { injectVars } from '../utils/injectVars'
+import { fontBorder } from './helpers/border'
 
 const TEXT_WIDTH_COOF = {
   JS: 1.52,
@@ -20,9 +22,9 @@ const BigRow = styled.div`
 
   transform: translateX(var(--offset));
 
-  color: #6624ff;
-  -webkit-text-fill-color: transparent;
-  -webkit-text-stroke: 1px #6624ff;
+  color: ${themeGet('colors.primary', 'black')};
+
+  ${fontBorder};
 
   &:after {
     content: var(--text);
@@ -30,10 +32,6 @@ const BigRow = styled.div`
     left: 0;
     top: 0;
     transform: translateX(-100%);
-  }
-
-  @media (min-width: 780px) and (min-height: 500px) {
-    -webkit-text-stroke: 2px #6624ff;
   }
 `
 
@@ -53,7 +51,7 @@ const SmallRow = styled.div`
 
   transform: translateX(var(--scroll));
 
-  color: #6624ff;
+  color: ${themeGet('colors.primary', 'black')};
 `
 
 const Row = ({ text, children, vars }) => (
@@ -68,7 +66,7 @@ const Fullscreen = styled.div`
   transform: translateY(var(--offsetx));
 
   overflow: hidden;
-  background-color: white;
+  background-color: ${themeGet('colors.bg', 'white')};
 
   width: 100%;
   z-index: -1;
@@ -83,8 +81,14 @@ const Center = styled.div`
 
 const range = count => Array.from({ length: count }, (_, i) => i)
 
+const textShadow = responsiveStyle({
+  prop: 'textShadow',
+  key: 'shadows'
+})
+
 const Number = styled.div`
-  color: #ff3357;
+  display: inline-block;
+  color: ${themeGet('colors.secondary', 'black')};
 
   font-family: Gotham Pro;
   font-weight: 900;
@@ -94,10 +98,10 @@ const Number = styled.div`
   font-size: calc(var(--fontsize) * (1.25 + 0.13) * 2);
   line-height: calc(var(--fontsize) * 1.12 * 2);
 
-  display: flex;
+  ${textShadow};
 `
 
-const BgWithLogo = ({ children }) => (
+const BgWithLogo = ({ children, theme }) => (
   <Size>
     {size => {
       const fontSize = Math.round(
@@ -165,7 +169,9 @@ const BgWithLogo = ({ children }) => (
                 </Center>
               </Fullscreen>
 
-              <Number>7</Number>
+              <Number textShadow={themeGet('shadows')({ theme })}>
+                {themeGet('shadow')({ theme })}7
+              </Number>
 
               <div style={{ paddingBottom: '120vh' }} />
 
@@ -178,4 +184,4 @@ const BgWithLogo = ({ children }) => (
   </Size>
 )
 
-export default BgWithLogo
+export default withTheme(BgWithLogo)
