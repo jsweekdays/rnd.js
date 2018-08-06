@@ -15,7 +15,7 @@ const theme = {
     // tertiary: '#F6F7FD',
 
     font: '#262626',
-    bg: '#fff'
+    background: ['#262626', '#1C1B1F']
   },
 
   shadows: [

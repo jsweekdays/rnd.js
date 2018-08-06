@@ -4,7 +4,6 @@ import { responsiveStyle, themeGet } from 'styled-system'
 import Size from './Size'
 import Scroll from './Scroll'
 import { injectVars } from '../utils/injectVars'
-import { fontBorder } from './helpers/border'
 
 const TEXT_WIDTH_COOF = {
   JS: 1.52,
@@ -22,9 +21,7 @@ const BigRow = styled.div`
 
   transform: translateX(var(--offset));
 
-  color: ${themeGet('colors.primary', 'black')};
-
-  ${fontBorder};
+  color: ${themeGet('colors.background.1', 'black')};
 
   &:after {
     content: var(--text);
@@ -56,8 +53,8 @@ const SmallRow = styled.div`
 
 const Row = ({ text, children, vars }) => (
   <Block style={injectVars(vars)}>
-    {text && <SmallRow>{text}</SmallRow>}
     <BigRow>{children}</BigRow>
+    {text && <SmallRow>{text}</SmallRow>}
   </Block>
 )
 
@@ -66,7 +63,7 @@ const Fullscreen = styled.div`
   transform: translateY(var(--offsetx));
 
   overflow: hidden;
-  background-color: ${themeGet('colors.bg', 'white')};
+  background-color: ${themeGet('colors.background.0', 'black')};
 
   width: 100%;
   z-index: -1;
