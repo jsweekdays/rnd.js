@@ -53,8 +53,8 @@ const SmallRow = styled.div`
 
 const Row = ({ text, children, vars }) => (
   <Block style={injectVars(vars)}>
-    {text && <SmallRow>{text}</SmallRow>}
     <BigRow>{children}</BigRow>
+    {text && <SmallRow>{text}</SmallRow>}
   </Block>
 )
 
