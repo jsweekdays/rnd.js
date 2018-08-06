@@ -5,6 +5,7 @@ import { ThemeProvider } from 'styled-components'
 import BgWithLogo from '../components/BgWithLogo'
 import Card from '../components/Card'
 import Button from '../components/Button'
+import Speaker from '../components/Speaker'
 import { Text, Uppercase } from '../components/Typography'
 import theme from '../utils/theme'
 import addGlobal from '../global-styles'
@@ -43,7 +44,17 @@ const App = () => (
         </Flex>
       </Card>
 
-      <Flex w='100%' py='5vh' />
+      <Card>
+        <Box py={84}>
+          <Speaker />
+          <Speaker />
+          <Speaker />
+          <Speaker />
+          <Speaker />
+          <Speaker />
+          <Speaker />
+        </Box>
+      </Card>
     </BgWithLogo>
   </ThemeProvider>
 )
