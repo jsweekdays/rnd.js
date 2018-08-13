@@ -18,10 +18,15 @@ const Bg = styled.div`
 `
 
 const Img = styled.img`
+  width: 208px;
+  height: 208px;
+
   mix-blend-mode: multiply;
 `
 
 const Block = styled.div`
+  width: 208px;
+  height: 208px;
   position: relative;
 `
 

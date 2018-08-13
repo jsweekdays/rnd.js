@@ -4,10 +4,7 @@ import styled from 'styled-components'
 import { Toggle } from 'react-powerplug'
 import Image from './Image'
 import Collapse from './Collapser'
-
-// const svg = `<svg width="24" height="17" viewBox="0 0 24 17" fill="none" xmlns="http://www.w3.org/2000/svg">
-// <path d="M12.354 8.11l6.525-6.524 3.535 3.535L12 15.536 1.586 5.12 5.12 1.586l6.525 6.525.354.353.354-.353z" stroke="#6624FF"/>
-// </svg>`
+import Arrow from './Arrow'
 
 const Name = styled.div`
   font-family: Gotham Pro;
@@ -74,9 +71,13 @@ const Speaker = () => (
           </Box>
 
           <Flex flexDirection='column'>
-            <Box>
+            <Flex justifyContent='space-between' alignItems='center'>
               <Name>Димка Подлесный</Name>
-            </Box>
+
+              <Box>
+                <Arrow direction={on ? 'up' : 'down'} />
+              </Box>
+            </Flex>
 
             <Box pt={15} pb={24}>
               <Low>

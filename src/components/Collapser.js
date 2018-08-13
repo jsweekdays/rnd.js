@@ -1,19 +1,35 @@
 import React from 'react'
 import styled from 'styled-components'
 import { Value } from 'react-powerplug'
+import posed from 'react-pose'
 
-const Content = styled.div`
-  height: 0;
-  opacity: 0;
+const Collapser = posed.div({
+  hidden: {
+    opacity: 0,
+    height: 0,
+    transition: {
+      opacity: { ease: 'easeInOut', duration: 300 },
+      height: { ease: 'easeInOut', duration: 300 }
+    }
+  },
+  visible: {
+    opacity: 1,
+    height: ({ height }) => height,
+    transition: {
+      opacity: { ease: 'easeInOut', duration: 300 },
+      height: { ease: 'easeInOut', duration: 300 }
+    }
+  }
+})
+
+const StyledCollapser = styled(Collapser)`
   overflow: hidden;
-  transition: height cubic-bezier(0.455, 0.03, 0.515, 0.955) 300ms,
-    opacity ease 300ms;
 `
 
 const Collapse = ({ children, on }) => (
   <Value>
     {({ value, set }) => (
-      <Content style={on ? { height: `${value}px`, opacity: 1 } : {}}>
+      <StyledCollapser pose={on ? 'visible' : 'hidden'} height={value}>
         <div
           ref={element => {
             if (element && element.offsetHeight !== value) {
@@ -23,7 +39,7 @@ const Collapse = ({ children, on }) => (
         >
           {children}
         </div>
-      </Content>
+      </StyledCollapser>
     )}
   </Value>
 )
