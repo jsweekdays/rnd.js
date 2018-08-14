@@ -170,7 +170,7 @@ const BgWithLogo = ({ children, theme }) => (
                 {themeGet('shadow')({ theme })}7
               </Number>
 
-              <div style={{ paddingBottom: '50vh' }} />
+              <div style={{ paddingBottom: '90vh' }} />
 
               {children}
             </div>
