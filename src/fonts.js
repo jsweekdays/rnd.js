@@ -7,30 +7,26 @@ import regular from '../fonts/GothamPro.woff'
 
 injectGlobal`
   @font-face { 
-    font-family: Gotham Pro; 
-    src: local("GothamPro-Black"), local("Gotham Pro Black"),
-        url(${black});
+    font-family: Gotham Pro;
     font-weight: 900;
+    src: url(${black});
   }
 
   @font-face { 
     font-family: Gotham Pro; 
-    src: local("GothamPro-Bold"), local("Gotham Pro Bold"),
-        url(${bold});
-    font-weight: 800; 
+    src: url(${bold});
+    font-weight: 700; 
   }
   
   @font-face { 
     font-family: Gotham Pro; 
-    src: local("GothamPro-Medium"), local("Gotham Pro Medium"),
-        url(${medium});
+    src: url(${medium});
     font-weight: 500; 
   } 
 
   @font-face { 
     font-family: Gotham Pro; 
-    src: local("GothamPro"), local("Gotham Pro"),
-        url(${regular});
+    src: url(${regular});
     font-weight: 400; 
   } 
 `

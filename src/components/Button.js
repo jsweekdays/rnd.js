@@ -1,5 +1,6 @@
 import styled from 'styled-components'
 import { themeGet } from 'styled-system'
+import { transform, boxShadow } from './helpers/style'
 
 const Button = styled.button`
   cursor: pointer;
@@ -7,26 +8,28 @@ const Button = styled.button`
   outline: none;
   background-color: ${themeGet('colors.primary')};
 
-  padding: 25px 68px 20px;
+  padding: 24px 55px 23px;
 
   font-family: Gotham Pro;
   line-height: 24px;
   font-size: 18px;
   text-transform: uppercase;
-  font-weight: 800;
+  font-weight: 700;
 
-  color: ${themeGet('colors.bg')};
-  box-shadow: 24px 24px 0px rgba(15, 0, 50, 0.15);
+  color: white;
 
-  transition: text-shadow 0.16s ease, box-shadow 0.2s ease, transform 0.2s ease;
+  ${props => boxShadow({ boxShadow: themeGet('shadows.0')(props) })};
+
+  transition: box-shadow 0.2s ease, transform 0.2s ease,
+    background-color 0.2 ease;
 
   &:hover {
-    text-shadow: 3px -1px 0 ${themeGet('colors.secondary')};
+    background-color: ${themeGet('colors.primary.ligther')};
   }
 
   &:active {
-    transform: translate(22px, 22px);
-    box-shadow: unset;
+    ${props => transform({ transform: themeGet('offsets.0')(props) })};
+    box-shadow: 1px 1px 0px ${themeGet('colors.shadow')};
   }
 `
 

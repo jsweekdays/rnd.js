@@ -3,25 +3,44 @@ import React from 'react'
 import { Flex, Box } from 'grid-styled'
 import BgWithLogo from '../components/BgWithLogo'
 import Card from '../components/Card'
-import Title from '../components/Title'
 import Button from '../components/Button'
+import { Header } from '../components/Typography'
 import { ThemeProvider } from 'styled-components'
 
+const shadow = 'hsla(255, 10%, 10%, 0.15)'
 const theme = {
   colors: {
-    primary: '#6624FF',
+    primary: Object.assign('hsl(258, 100%, 57%)', {
+      ligther: 'hsl(258, 95%, 60%)'
+    }),
     secondary: '#FF3357',
     tertiary: 'rgba(101, 37, 255, 0.2);',
     // tertiary: '#F6F7FD',
 
     font: '#262626',
-    background: ['#262626', '#1C1B1F']
+    shadow,
+
+    // background: ['#262626', '#1C1B1F']
+    background: ['hsl(255, 7%, 40%)', 'hsl(255, 7%, 45%)']
+  },
+
+  card: {
+    size: ['auto', 'auto', 880, 1104],
+    margin: ['0 8px 25vh 0', '0 16px 25vh 0', ' 0px auto 25vh']
   },
 
   shadows: [
-    '8px 8px 0px rgba(15, 0, 50, 0.15)',
-    '16px 16px 0px rgba(15, 0, 50, 0.15)',
-    '24px 24px 0px rgba(15, 0, 50, 0.15)'
+    `8px 16px 0px ${shadow}`,
+    `16px 24px 0px ${shadow}`,
+    `24px 32px 0px ${shadow}`,
+    `32px 48px 0px ${shadow}`
+  ],
+
+  offsets: [
+    'translate(8px, 16px)',
+    'translate(16px, 24px)',
+    'translate(24px, 32px)',
+    'translate(32px, 48px)'
   ]
 }
 
@@ -29,14 +48,21 @@ const App = () => (
   <ThemeProvider theme={theme}>
     <BgWithLogo>
       <Card>
-        <Title>cкоро</Title>
-
-        <Box py={182} />
+        <Flex justifyContent='center' py={100}>
+          <Header>Скоро</Header>
+        </Flex>
       </Card>
 
-      <Flex w='100%' py='90vh' justifyContent='center'>
-        <Button>Стань спикером</Button>
-      </Flex>
+      <Card>
+        <Flex p='100px 100px 130px' flexDirection='column' alignItems='center'>
+          <Box pb={50}>
+            <Header>Хочешь выступить?</Header>
+          </Box>
+          <Button>заполни заявку</Button>
+        </Flex>
+      </Card>
+
+      <Flex w='100%' py='5vh' />
     </BgWithLogo>
   </ThemeProvider>
 )
