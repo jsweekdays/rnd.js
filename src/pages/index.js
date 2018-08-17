@@ -9,10 +9,10 @@ import addGlobal from '../global-styles'
 
 addGlobal()
 
-const shadow = 'hsla(255, 10%, 10%, 0.15)'
+const shadow = 'rgba(13, 8, 26, 0.3)'
 const theme = {
   colors: {
-    primary: Object.assign('hsl(258, 100%, 57%)', {
+    primary: Object.assign('#6624FF', {
       ligther: 'hsl(258, 95%, 60%)'
     }),
     secondary: '#FF3357',
@@ -22,8 +22,8 @@ const theme = {
     font: '#262626',
     shadow,
 
-    // background: ['#262626', '#1C1B1F']
-    background: ['hsl(255, 7%, 40%)', 'hsl(255, 7%, 45%)']
+    background: ['#262626', '#1C1B1F']
+    // background: ['hsl(255, 7%, 40%)', 'hsl(255, 7%, 45%)']
   },
 
   card: {
