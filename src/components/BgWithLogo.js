@@ -8,7 +8,9 @@ import { injectVars } from '../utils/injectVars'
 const TEXT_WIDTH_COOF = {
   JS: 1.52,
   RND: 2.84,
-  '7': 1.69
+  '7': 1.69,
+  '40': 1.7738297872340427,
+  '04': 1.7738297872340427
 }
 
 const BigRow = styled.div`
@@ -182,3 +184,78 @@ const BgWithLogo = ({ children, theme }) => (
 )
 
 export default withTheme(BgWithLogo)
+
+const ErrorPage = ({ children, theme }) => (
+  <Size>
+    {size => {
+      const fontSize = Math.round(
+        Math.min(size.width / 2 / TEXT_WIDTH_COOF['40'], size.height / 3.5)
+      )
+      const lines = Math.ceil(size.height / fontSize) + 2
+      const centerIndex = Math.ceil(lines / 2)
+      const magikParam = centerIndex % 2
+
+      return (
+        <Scroll>
+          {({ scroll }) => (
+            <div
+              style={injectVars({
+                offsetx:
+                  size.height / 2 -
+                  fontSize / 2 -
+                  centerIndex * fontSize +
+                  'px',
+                offsety:
+                  size.width / 2 -
+                  (TEXT_WIDTH_COOF['RND'] * fontSize) / 2 +
+                  'px',
+                fontsize: fontSize + 'px'
+              })}
+            >
+              <Fullscreen>
+                <Center>
+                  {range(lines).map(index => {
+                    const text = index % 2 !== magikParam ? '04' : '40'
+                    const width = TEXT_WIDTH_COOF[text] * fontSize
+                    const numbers = Math.ceil(size.width / width) / 1.5 + 2
+                    const direction = index % 2 === magikParam ? 1 : -1
+                    const directionScroll =
+                      scroll * direction - (text === 'JS' ? width * 0.21 : 0)
+                    const offset = directionScroll % width
+                    const fullText = range(numbers).reduce(
+                      str => str.concat(text),
+                      ''
+                    )
+                    const isMain = centerIndex === index
+
+                    return (
+                      <Row
+                        key={index}
+                        text={isMain ? '404' : null}
+                        vars={{
+                          direction,
+                          scroll: directionScroll + 'px',
+                          offset: offset + 'px',
+                          width,
+                          text: `"${fullText}"`
+                        }}
+                      >
+                        {fullText}
+                      </Row>
+                    )
+                  })}
+                </Center>
+              </Fullscreen>
+
+              <div style={{ paddingBottom: '1000vh' }} />
+
+              {children}
+            </div>
+          )}
+        </Scroll>
+      )
+    }}
+  </Size>
+)
+
+export const Error404 = withTheme(ErrorPage)
