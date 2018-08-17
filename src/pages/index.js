@@ -60,7 +60,13 @@ const App = () => (
           <Box pb={50}>
             <Header>Хочешь выступить?</Header>
           </Box>
-          <Button>заполни заявку</Button>
+          <Button
+            is='a'
+            href='https://docs.google.com/forms/d/e/1FAIpQLScQo214aM5hDsHC-Ki5ajkn6q0qAxiStm55Aq6hARyDM3RyMA/viewform?hl=en'
+            target='_blank'
+          >
+            заполни заявку
+          </Button>
         </Flex>
       </Card>
 

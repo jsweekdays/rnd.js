@@ -1,11 +1,17 @@
+import React from 'react'
 import styled from 'styled-components'
 import { themeGet } from 'styled-system'
 import { transform, boxShadow } from './helpers/style'
 
-const Button = styled.button`
+const tag = React.forwardRef(({ is: Component = 'button', ...props }, ref) => (
+  <Component {...props} ref={ref} />
+))
+
+const Button = styled(tag)`
   cursor: pointer;
   border: none;
   outline: none;
+  text-decoration: none;
   background-color: ${themeGet('colors.primary')};
 
   padding: 24px 55px 23px;
