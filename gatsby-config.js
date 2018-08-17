@@ -1,10 +1,8 @@
 module.exports = {
   pathPrefix: '/rnd.js',
-  siteMetadata: {
-    title: 'RND <3 JS'
-  },
   plugins: [
     'gatsby-plugin-styled-components',
+    'gatsby-plugin-react-helmet',
     {
       resolve: 'gatsby-plugin-google-analytics',
       options: {

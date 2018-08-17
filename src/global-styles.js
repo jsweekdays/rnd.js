@@ -23,6 +23,7 @@ export default () => {
   injectGlobal`
     body {
       margin: 0;
+      background-color: '#262626'
     }
   `
 }

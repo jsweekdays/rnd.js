@@ -1,4 +1,5 @@
 import React from 'react'
+import Helmet from 'react-helmet'
 import { Flex, Box } from 'grid-styled'
 import { ThemeProvider } from 'styled-components'
 import BgWithLogo from '../components/BgWithLogo'
@@ -49,6 +50,10 @@ const theme = {
 const App = () => (
   <ThemeProvider theme={theme}>
     <BgWithLogo>
+      <Helmet>
+        <title>RND {'<'}3 JS</title>
+        <meta name='description' content='Ростовский JavaScript Митап' />
+      </Helmet>
       <Card>
         <Flex justifyContent='center' py={100}>
           <Header>Скоро</Header>
