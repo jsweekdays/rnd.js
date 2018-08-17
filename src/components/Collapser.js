@@ -24,6 +24,7 @@ const Collapser = posed.div({
 
 const StyledCollapser = styled(Collapser)`
   overflow: hidden;
+  user-select: none;
 `
 
 const Collapse = ({ children, on }) => (
