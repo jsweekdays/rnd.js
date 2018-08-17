@@ -1,11 +1,13 @@
-import '../fonts'
 import React from 'react'
 import { Flex, Box } from 'grid-styled'
+import { ThemeProvider } from 'styled-components'
 import BgWithLogo from '../components/BgWithLogo'
 import Card from '../components/Card'
 import Button from '../components/Button'
 import { Header } from '../components/Typography'
-import { ThemeProvider } from 'styled-components'
+import addGlobal from '../global-styles'
+
+addGlobal()
 
 const shadow = 'hsla(255, 10%, 10%, 0.15)'
 const theme = {

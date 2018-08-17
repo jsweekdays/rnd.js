@@ -4,25 +4,20 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "predeploy": "npm run build",
-    "deploy": "gh-pages -d ./dist",
-    "dev": "x0 ./src/pages",
-    "build": "x0 build ./src/pages"
+    "predeploy": "gatsby build --prefix-paths",
+    "deploy": "gh-pages -d public",
+    "dev": "gatsby develop",
+    "build": "gatsby build"
   },
   "keywords": [],
   "author": "",
-  "homepage": "https://jsweekdays.github.io/rnd.js",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/jsweekdays/rnd.js.git"
-  },
-  "x0": {
-    "basename": "/rnd.js"
-  },
   "license": "ISC",
   "dependencies": {
-    "@compositor/x0": "^6.0.0",
+    "babel-plugin-styled-components": "^1.5.1",
     "file-loader": "^1.1.11",
+    "gatsby": "next",
+    "gatsby-plugin-google-analytics": "next",
+    "gatsby-plugin-styled-components": "next",
     "gh-pages": "^1.2.0",
     "grid-styled": "^5.0.2",
     "react": "^16.4.1",
