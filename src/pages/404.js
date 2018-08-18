@@ -10,6 +10,7 @@ addGlobal()
 const John = styled.img`
   margin: 0 auto;
   display: block;
+  max-width: 100%;
 `
 
 const App = () => (
