@@ -5,7 +5,7 @@ import { ThemeProvider } from 'styled-components'
 import BgWithLogo from '../components/BgWithLogo'
 import Card from '../components/Card'
 import Button from '../components/Button'
-import { Header } from '../components/Typography'
+import { Text, Uppercase } from '../components/Typography'
 import theme from '../utils/theme'
 import addGlobal from '../global-styles'
 
@@ -20,14 +20,18 @@ const App = () => (
       </Helmet>
       <Card>
         <Flex justifyContent='center' py={100}>
-          <Header>Скоро</Header>
+          <Uppercase>
+            <Text fontSize={[20, 24, 32, 40]}>Скоро</Text>
+          </Uppercase>
         </Flex>
       </Card>
 
       <Card>
-        <Flex p='100px 100px 130px' flexDirection='column' alignItems='center'>
+        <Flex p='100px 0 130px' flexDirection='column' alignItems='center'>
           <Box pb={50}>
-            <Header>Хочешь выступить?</Header>
+            <Uppercase>
+              <Text fontSize={[20, 24, 32, 40]}>Хочешь выступить?</Text>
+            </Uppercase>
           </Box>
           <Button
             is='a'

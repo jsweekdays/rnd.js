@@ -1,16 +1,18 @@
-import styled from 'styled-components'
-import { space, width, themeGet } from 'styled-system'
-import { boxShadow } from './helpers/style'
+import system from 'system-components'
+import theme from '../utils/theme'
 
-const Card = styled.div`
-  position: relative;
-  overflow: hidden;
+const Card = system(
+  {
+    width: ['auto', 'auto', 808, 1104],
+    m: ['0 8px 25vh 0', '0 16px 25vh 0', '0px auto 25vh'],
+    boxShadow: theme.shadows
+  },
+  () => ({
+    position: 'relative',
+    overflow: 'hidden',
 
-  background-color: #fff;
-
-  ${props => width({ width: themeGet('card.size')(props) })};
-  ${props => space({ m: themeGet('card.margin')(props) })};
-  ${props => boxShadow({ boxShadow: themeGet('shadows')(props) })};
-`
+    backgroundColor: '#fff'
+  })
+)
 
 export default Card

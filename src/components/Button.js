@@ -1,42 +1,41 @@
-import React from 'react'
-import styled from 'styled-components'
 import { themeGet } from 'styled-system'
-import { transform, boxShadow } from './helpers/style'
+import { css } from 'styled-components'
+import system from 'system-components'
+import theme from '../utils/theme'
 
-const tag = React.forwardRef(({ is: Component = 'button', ...props }, ref) => (
-  <Component {...props} ref={ref} />
-))
+const Button = system(
+  {
+    is: 'button',
+    p: ['16px 33px 15px', '16px 33px 15px', '24px 55px 23px'],
+    fontSize: [16, 16, 18],
+    lineHeight: 24 / 18,
+    boxShadow: theme.shadows[0]
+  },
+  props => css`
+    cursor: pointer;
+    border: none;
+    outline: none;
+    text-decoration: none;
+    background-color: ${themeGet('colors.primary')(props)};
 
-const Button = styled(tag)`
-  cursor: pointer;
-  border: none;
-  outline: none;
-  text-decoration: none;
-  background-color: ${themeGet('colors.primary')};
+    font-family: Gotham Pro;
+    text-transform: uppercase;
+    font-weight: 700;
 
-  padding: 24px 55px 23px;
+    color: white;
 
-  font-family: Gotham Pro;
-  line-height: 24px;
-  font-size: 18px;
-  text-transform: uppercase;
-  font-weight: 700;
+    transition: box-shadow 0.2s ease, transform 0.2s ease,
+      background-color 0.2 ease;
 
-  color: white;
+    &:hover {
+      background-color: ${themeGet('colors.primary.ligther')(props)};
+    }
 
-  ${props => boxShadow({ boxShadow: themeGet('shadows.0')(props) })};
-
-  transition: box-shadow 0.2s ease, transform 0.2s ease,
-    background-color 0.2 ease;
-
-  &:hover {
-    background-color: ${themeGet('colors.primary.ligther')};
-  }
-
-  &:active {
-    ${props => transform({ transform: themeGet('offsets.0')(props) })};
-    box-shadow: 1px 1px 0px ${themeGet('colors.shadow')};
-  }
-`
+    &:active {
+      box-shadow: 1px 1px 0px ${themeGet('colors.shadow')};
+      transform: ${themeGet('offsets.0')};
+    }
+  `
+)
 
 export default Button
