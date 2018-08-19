@@ -7,7 +7,7 @@ import Card from '../components/Card'
 import Button from '../components/Button'
 import { Text, Uppercase } from '../components/Typography'
 import theme from '../utils/theme'
-import addGlobal from '../global-styles'
+import addGlobal from '../utils/global-styles'
 
 addGlobal()
 
@@ -18,6 +18,7 @@ const App = () => (
         <title>RND {'<'}3 JS</title>
         <meta name='description' content='Ростовский JavaScript Митап' />
       </Helmet>
+
       <Card>
         <Flex justifyContent='center' py={100}>
           <Uppercase>
@@ -33,6 +34,7 @@ const App = () => (
               <Text fontSize={[20, 24, 32, 40]}>Хочешь выступить?</Text>
             </Uppercase>
           </Box>
+
           <Button
             is='a'
             href='https://docs.google.com/forms/d/e/1FAIpQLScQo214aM5hDsHC-Ki5ajkn6q0qAxiStm55Aq6hARyDM3RyMA/viewform?hl=en'
@@ -42,8 +44,6 @@ const App = () => (
           </Button>
         </Flex>
       </Card>
-
-      <Flex w='100%' py='5vh' />
     </BgWithLogo>
   </ThemeProvider>
 )
