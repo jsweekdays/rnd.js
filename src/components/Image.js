@@ -1,40 +1,39 @@
 import React from 'react'
 import styled from 'styled-components'
-import { themeGet } from 'styled-system'
+import { width, backgroundImage, bgColor } from 'styled-system'
 
-const Bg = styled.div`
+const Mask = styled.div`
   position: absolute;
   top: 0;
   left: 0;
   bottom: 0;
   right: 0;
 
-  background-image: linear-gradient(
-    250deg,
-    ${themeGet('colors.secondary')} -10%,
-    ${themeGet('colors.primary')} 110%
-  );
-  opacity: 0.6;
+  opacity: ${props => props.opacity || 1};
+  mix-blend-mode: ${props => props.mode || ''};
+
+  ${bgColor};
+  ${backgroundImage};
 `
 
-const Img = styled.img`
-  width: 208px;
-  height: 208px;
-
-  mix-blend-mode: multiply;
-`
-
-const Block = styled.div`
-  width: 208px;
-  height: 208px;
-  position: relative;
-`
-
-const Image = ({ src, alt = 'image' }) => (
+const ColorMask = ({ children, color, gradient, opacity, mode }) => (
   <Block>
-    <Bg />
-    <Img src={src} alt={alt} />
+    {children}
+    <Mask bg={color} backgroundImage={gradient} opacity={opacity} mode={mode} />
   </Block>
 )
 
+const Image = styled.img`
+  display: block;
+
+  user-select: none;
+
+  ${width};
+`
+
+const Block = styled.div`
+  position: relative;
+`
+
+export { ColorMask }
 export default Image

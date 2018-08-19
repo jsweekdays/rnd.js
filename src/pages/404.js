@@ -3,7 +3,7 @@ import Helmet from 'react-helmet'
 import styled, { ThemeProvider } from 'styled-components'
 import { Error404 } from '../components/BgWithLogo'
 import theme from '../utils/theme'
-import addGlobal from '../global-styles'
+import addGlobal from '../utils/global-styles'
 
 addGlobal()
 
