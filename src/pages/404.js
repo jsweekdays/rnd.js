@@ -1,7 +1,7 @@
 import React from 'react'
 import Helmet from 'react-helmet'
 import styled, { ThemeProvider } from 'styled-components'
-import { Error404 } from '../components/BgWithLogo'
+import { ErrorPage } from '../components/Bg'
 import theme from '../utils/theme'
 import addGlobal from '../utils/global-styles'
 
@@ -15,7 +15,7 @@ const John = styled.img`
 
 const App = () => (
   <ThemeProvider theme={theme}>
-    <Error404>
+    <ErrorPage>
       <Helmet>
         <title>404 | RND {'<'}3 JS</title>
         <meta name='description' content='Ничегошеньки не нашли' />
@@ -24,7 +24,7 @@ const App = () => (
         src='https://media.giphy.com/media/jWexOOlYe241y/giphy.gif'
         alt=''
       />
-    </Error404>
+    </ErrorPage>
   </ThemeProvider>
 )
 
