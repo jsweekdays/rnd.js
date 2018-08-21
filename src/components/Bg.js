@@ -193,9 +193,10 @@ const BgWithLogo = ({ children, theme }) => (
   </SizeParams>
 )
 
-export const Bg = ({ children, theme }) => (
+export const Bg = ({ children }) => (
   <SizeParams>
-    {({ size, fontSize, lines, centerIndex }) => {
+    {({ size, lines, centerIndex }) => {
+      const fontSize = size.height / 4
       const magikParam = centerIndex % 2
 
       const numberoffsetx = size.height / 2 - fontSize
