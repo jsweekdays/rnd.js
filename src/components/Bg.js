@@ -100,7 +100,7 @@ const Number = styled.div`
   ${textShadow};
 `
 
-const BgWithLogo = ({ children, theme }) => (
+const SizeParams = ({ children }) => (
   <Size>
     {size => {
       const fontSize = Math.round(
@@ -108,28 +108,40 @@ const BgWithLogo = ({ children, theme }) => (
       )
       const lines = Math.ceil(size.height / fontSize) + 2
       const centerIndex = Math.floor(lines / 2) - 1
+
+      return children({
+        size,
+        fontSize,
+        lines,
+        centerIndex
+      })
+    }}
+  </Size>
+)
+
+const BgWithLogo = ({ children, theme }) => (
+  <SizeParams>
+    {({ size, fontSize, lines, centerIndex }) => {
       const magikParam = centerIndex % 2
+
+      const numberoffsetx = size.height / 2 - fontSize
+      const numberoffsety =
+        size.width / 2 -
+        ((TEXT_WIDTH_COOF['RND'] + TEXT_WIDTH_COOF['7']) * fontSize) / 2
+
+      const offsetx = numberoffsetx - centerIndex * fontSize
+      const offsety = numberoffsety + TEXT_WIDTH_COOF['7'] * fontSize
 
       return (
         <Scroll>
           {({ scroll }) => (
             <div
               style={injectVars({
-                numberoffsetx: size.height / 2 - fontSize + 'px',
-                numberoffsety:
-                  size.width / 2 -
-                  ((TEXT_WIDTH_COOF['RND'] + TEXT_WIDTH_COOF['7']) * fontSize) /
-                    2 +
-                  'px',
-                offsetx:
-                  size.height / 2 - fontSize - centerIndex * fontSize + 'px',
-                offsety:
-                  size.width / 2 -
-                  ((TEXT_WIDTH_COOF['RND'] + TEXT_WIDTH_COOF['7']) * fontSize) /
-                    2 +
-                  TEXT_WIDTH_COOF['7'] * fontSize +
-                  'px',
-                fontsize: fontSize + 'px'
+                numberoffsetx,
+                numberoffsety,
+                offsetx,
+                offsety,
+                fontsize: fontSize
               })}
             >
               <Fullscreen>
@@ -155,8 +167,8 @@ const BgWithLogo = ({ children, theme }) => (
                         text={isMain ? text : null}
                         vars={{
                           direction,
-                          scroll: directionScroll + 'px',
-                          offset: offset + 'px',
+                          scroll: directionScroll,
+                          offset,
                           width,
                           text: `"${fullText}"`
                         }}
@@ -168,9 +180,7 @@ const BgWithLogo = ({ children, theme }) => (
                 </Center>
               </Fullscreen>
 
-              <Number textShadow={themeGet('shadows')({ theme })}>
-                {themeGet('shadow')({ theme })}7
-              </Number>
+              <Number textShadow={themeGet('shadows')({ theme })}>7</Number>
 
               <div style={{ paddingBottom: '90vh' }} />
 
@@ -180,36 +190,91 @@ const BgWithLogo = ({ children, theme }) => (
         </Scroll>
       )
     }}
-  </Size>
+  </SizeParams>
 )
 
-export default withTheme(BgWithLogo)
-
-const ErrorPage = ({ children, theme }) => (
-  <Size>
-    {size => {
-      const fontSize = Math.round(
-        Math.min(size.width / 2 / TEXT_WIDTH_COOF['40'], size.height / 3.5)
-      )
-      const lines = Math.ceil(size.height / fontSize) + 2
-      const centerIndex = Math.ceil(lines / 2)
+export const Bg = ({ children }) => (
+  <SizeParams>
+    {({ size, lines, centerIndex }) => {
+      const fontSize = size.height / 4
       const magikParam = centerIndex % 2
+
+      const numberoffsetx = size.height / 2 - fontSize
+      const numberoffsety =
+        size.width / 2 -
+        ((TEXT_WIDTH_COOF['RND'] + TEXT_WIDTH_COOF['7']) * fontSize) / 2
+
+      const offsetx = numberoffsetx - centerIndex * fontSize
+      const offsety = numberoffsety + TEXT_WIDTH_COOF['7'] * fontSize
 
       return (
         <Scroll>
           {({ scroll }) => (
             <div
               style={injectVars({
-                offsetx:
-                  size.height / 2 -
-                  fontSize / 2 -
-                  centerIndex * fontSize +
-                  'px',
-                offsety:
-                  size.width / 2 -
-                  (TEXT_WIDTH_COOF['RND'] * fontSize) / 2 +
-                  'px',
-                fontsize: fontSize + 'px'
+                offsetx,
+                offsety,
+                fontsize: fontSize
+              })}
+            >
+              <Fullscreen>
+                <Center>
+                  {range(lines).map(index => {
+                    const text = index % 2 !== magikParam ? 'JS' : 'RND'
+                    const width = TEXT_WIDTH_COOF[text] * fontSize
+                    const numbers = Math.ceil(size.width / width) / 1.5 + 2
+                    const direction = index % 2 === magikParam ? 1 : -1
+                    const directionScroll =
+                      scroll * direction - (text === 'JS' ? width * 0.21 : 0)
+                    const offset = directionScroll % width
+                    const fullText = range(numbers).reduce(
+                      str => str.concat(text),
+                      ''
+                    )
+
+                    return (
+                      <Row
+                        key={index}
+                        vars={{
+                          direction,
+                          scroll: directionScroll,
+                          offset: offset,
+                          width,
+                          text: `"${fullText}"`
+                        }}
+                      >
+                        {fullText}
+                      </Row>
+                    )
+                  })}
+                </Center>
+              </Fullscreen>
+
+              {children}
+            </div>
+          )}
+        </Scroll>
+      )
+    }}
+  </SizeParams>
+)
+
+export const ErrorPage = ({ children }) => (
+  <SizeParams>
+    {({ size, fontSize, lines, centerIndex }) => {
+      const magikParam = centerIndex % 2
+
+      const offsetx = size.height / 2 - fontSize / 2 - centerIndex * fontSize
+      const offsety = size.width / 2 - (TEXT_WIDTH_COOF['RND'] * fontSize) / 2
+
+      return (
+        <Scroll>
+          {({ scroll }) => (
+            <div
+              style={injectVars({
+                offsetx,
+                offsety,
+                fontsize: fontSize
               })}
             >
               <Fullscreen>
@@ -219,8 +284,7 @@ const ErrorPage = ({ children, theme }) => (
                     const width = TEXT_WIDTH_COOF[text] * fontSize
                     const numbers = Math.ceil(size.width / width) / 1.5 + 2
                     const direction = index % 2 === magikParam ? 1 : -1
-                    const directionScroll =
-                      scroll * direction - (text === 'JS' ? width * 0.21 : 0)
+                    const directionScroll = scroll * direction
                     const offset = directionScroll % width
                     const fullText = range(numbers).reduce(
                       str => str.concat(text),
@@ -234,8 +298,8 @@ const ErrorPage = ({ children, theme }) => (
                         text={isMain ? '404' : null}
                         vars={{
                           direction,
-                          scroll: directionScroll + 'px',
-                          offset: offset + 'px',
+                          scroll: directionScroll,
+                          offset: offset,
                           width,
                           text: `"${fullText}"`
                         }}
@@ -255,7 +319,7 @@ const ErrorPage = ({ children, theme }) => (
         </Scroll>
       )
     }}
-  </Size>
+  </SizeParams>
 )
 
-export const Error404 = withTheme(ErrorPage)
+export default withTheme(BgWithLogo)

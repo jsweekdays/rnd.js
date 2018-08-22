@@ -4,6 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "generate:speaker": "node ./scripts/speaker.js",
     "generate:logo": "node ./scripts/logo.js",
     "predeploy": "rimraf ./public && gatsby build --prefix-paths",
     "deploy": "gh-pages -d public",

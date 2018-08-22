@@ -1,7 +1,7 @@
 import React from 'react'
 import Helmet from 'react-helmet'
 import { ThemeProvider } from 'styled-components'
-import BgWithLogo from '../components/BgWithLogo'
+import BgWithLogo from '../components/Bg'
 import theme from '../utils/theme'
 import addGlobal from '../utils/global-styles'
 
