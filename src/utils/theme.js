@@ -6,7 +6,7 @@ export default {
     primary: Object.assign('#6624FF', {
       ligther: 'hsl(258, 95%, 60%)'
     }),
-    secondary: '#FF3357',
+    secondary: '#fd2148',
     tertiary: 'rgba(101, 37, 255, 0.2);',
 
     font: '#262626',

@@ -62,7 +62,7 @@ const Row = ({ text, children, vars }) => (
 
 const Fullscreen = styled.div`
   position: fixed;
-  transform: translateY(var(--offsetx));
+  transform: translateY(var(--offsety));
 
   overflow: hidden;
   background-color: ${themeGet('colors.background.0', 'black')};
@@ -75,7 +75,7 @@ const Center = styled.div`
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  transform: translateX(var(--offsety));
+  transform: translateX(var(--offsetx));
 `
 
 const range = count => Array.from({ length: count }, (_, i) => i)
@@ -92,10 +92,10 @@ const Number = styled.div`
   font-family: Gotham Pro;
   font-weight: 900;
 
-  transform: translate(var(--numberoffsety), var(--numberoffsetx));
+  transform: translate(var(--numberoffsetx), var(--numberoffsety));
 
-  font-size: calc(var(--fontsize) * (1.25 + 0.13) * 2);
-  line-height: calc(var(--fontsize) * 1.12 * 2);
+  font-size: calc(var(--fontsize) * (1.25 + 0.1) * 2);
+  line-height: calc(var(--fontsize) * 1.105 * 2);
 
   ${textShadow};
 `
@@ -124,21 +124,21 @@ const BgWithLogo = ({ children, theme }) => (
     {({ size, fontSize, lines, centerIndex }) => {
       const magikParam = centerIndex % 2
 
-      const numberoffsetx = size.height / 2 - fontSize
-      const numberoffsety =
+      const numberoffsety = size.height / 2 - fontSize
+      const numberoffsetx =
         size.width / 2 -
         ((TEXT_WIDTH_COOF['RND'] + TEXT_WIDTH_COOF['7']) * fontSize) / 2
 
-      const offsetx = numberoffsetx - centerIndex * fontSize
-      const offsety = numberoffsety + TEXT_WIDTH_COOF['7'] * fontSize
+      const offsety = numberoffsety - centerIndex * fontSize
+      const offsetx = numberoffsetx + TEXT_WIDTH_COOF['7'] * fontSize
 
       return (
         <Scroll>
           {({ scroll }) => (
             <div
               style={injectVars({
-                numberoffsetx,
                 numberoffsety,
+                numberoffsetx,
                 offsetx,
                 offsety,
                 fontsize: fontSize
@@ -199,21 +199,21 @@ export const Bg = ({ children }) => (
       const fontSize = size.height / 4
       const magikParam = centerIndex % 2
 
-      const numberoffsetx = size.height / 2 - fontSize
-      const numberoffsety =
+      const numberoffsety = size.height / 2 - fontSize
+      const numberoffsetx =
         size.width / 2 -
         ((TEXT_WIDTH_COOF['RND'] + TEXT_WIDTH_COOF['7']) * fontSize) / 2
 
-      const offsetx = numberoffsetx - centerIndex * fontSize
-      const offsety = numberoffsety + TEXT_WIDTH_COOF['7'] * fontSize
+      const offsety = numberoffsety - centerIndex * fontSize
+      const offsetx = numberoffsetx + TEXT_WIDTH_COOF['7'] * fontSize
 
       return (
         <Scroll>
           {({ scroll }) => (
             <div
               style={injectVars({
-                offsetx,
                 offsety,
+                offsetx,
                 fontsize: fontSize
               })}
             >
@@ -264,16 +264,16 @@ export const ErrorPage = ({ children }) => (
     {({ size, fontSize, lines, centerIndex }) => {
       const magikParam = centerIndex % 2
 
-      const offsetx = size.height / 2 - fontSize / 2 - centerIndex * fontSize
-      const offsety = size.width / 2 - (TEXT_WIDTH_COOF['RND'] * fontSize) / 2
+      const offsety = size.height / 2 - fontSize / 2 - centerIndex * fontSize
+      const offsetx = size.width / 2 - (TEXT_WIDTH_COOF['RND'] * fontSize) / 2
 
       return (
         <Scroll>
           {({ scroll }) => (
             <div
               style={injectVars({
-                offsetx,
                 offsety,
+                offsetx,
                 fontsize: fontSize
               })}
             >
