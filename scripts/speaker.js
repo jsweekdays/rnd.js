@@ -4,6 +4,6 @@ generate([
   {
     url: '/speaker',
     fileName: 'speaker',
-    size: '2048x1536'
+    size: '1200x900'
   }
 ])
