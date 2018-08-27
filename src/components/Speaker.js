@@ -15,7 +15,7 @@ const Hover = Flex.extend`
   }
 `
 
-const Speaker = ({ on, toggle, number }) => (
+const Speaker = ({ on, toggle, number, speaker }) => (
   <Hover
     flexDirection={['column', 'column', 'row']}
     onClick={toggle}
@@ -26,11 +26,12 @@ const Speaker = ({ on, toggle, number }) => (
       <ColorMask
         opacity={0.6}
         gradient='linear-gradient(250deg, #FF3357 -10%, #6624FF 110%)'
-        mode='multiply'
+        mode='color'
       >
         <Image
-          src='https://avatars1.githubusercontent.com/u/4665090?s=460&v=4'
+          src={speaker.avatar}
           width={['100%', '100%', 160, 208]}
+          style={{filter: 'grayscale(100%)'}}
         />
       </ColorMask>
     </Box>
@@ -51,7 +52,7 @@ const Speaker = ({ on, toggle, number }) => (
       <Flex flexDirection='column'>
         <Flex justifyContent='space-between' alignItems='center'>
           <Uppercase>
-            <Text fontSize={[20, 24, 32, 40]}>Димка Подлесный</Text>
+            <Text fontSize={[20, 24, 32, 40]}>{speaker.name}</Text>
           </Uppercase>
 
           <Box>
@@ -62,7 +63,7 @@ const Speaker = ({ on, toggle, number }) => (
         <Box pt={[10, 15]} pb={[16, 16, 24]}>
           <Uppercase>
             <Text fontSize={[16]}>
-              <Colorize color='#ff3357'>компания /</Colorize> тема докладa
+              <Colorize color='#ff3357'>{speaker.job} /</Colorize> {speaker.short_theme}
             </Text>
           </Uppercase>
         </Box>
@@ -74,12 +75,7 @@ const Speaker = ({ on, toggle, number }) => (
               lineHeight={[20 / 14, 24 / 16]}
               fontWeight={500}
             >
-              Реактивное программирование в тренде фронтенда, его принципы
-              используются в современных фреймворках и библиотеках. Однако,
-              чтобы серьезно работать с Rx, нужно немного перестроить парадигму
-              мышления, и это усложняет его изучение. В докладе я расскажу, как
-              прийти к жизни такой. Изучим паттерны, на которых основано
-              реактивное программирование.
+              {speaker.description}
             </Text>
           </Box>
         </Collapse>
