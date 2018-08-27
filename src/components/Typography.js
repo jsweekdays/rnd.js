@@ -13,6 +13,7 @@ export const Text = system(
   `,
   'fontWeight',
   'lineHeight',
+  'maxWidth',
   'fontSize',
   'color'
 )

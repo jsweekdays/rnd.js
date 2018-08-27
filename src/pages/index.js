@@ -5,7 +5,12 @@ import { ThemeProvider } from 'styled-components'
 import BgWithLogo from '../components/Bg'
 import Card from '../components/Card'
 import Button from '../components/Button'
-import { Text, Uppercase } from '../components/Typography'
+import {
+  Text,
+  Uppercase,
+  Colorize,
+  BorderedText
+} from '../components/Typography'
 import theme from '../utils/theme'
 import addGlobal from '../utils/global-styles'
 
@@ -20,10 +25,34 @@ const App = () => (
       </Helmet>
 
       <Card>
-        <Flex justifyContent='center' py={100}>
-          <Uppercase>
-            <Text fontSize={[20, 24, 32, 40]}>Скоро</Text>
-          </Uppercase>
+        <Flex pt={100} pb={90} px={112} flexDirection='column'>
+          <Box pb={64}>
+            <Text fontSize={42}>
+              Ростов-на-Дону&nbsp;
+              <Colorize color='#FF3357'>/</Colorize> Суворова, 91 этаж&nbsp;7&nbsp;
+              <Colorize color='#FF3357'>/</Colorize> Южный ИТ-парк
+            </Text>
+          </Box>
+
+          <Flex justifyContent='space-between'>
+            <Box>
+              <BorderedText
+                fontWeight={900}
+                fontSize={100}
+                fill='white'
+                width={'2px'}
+                stroke='#6624FF'
+              >
+                8 сент.
+              </BorderedText>
+            </Box>
+
+            <Box>
+              <Text fontWeight={900} color='#6624FF'>
+                15:00
+              </Text>
+            </Box>
+          </Flex>
         </Flex>
       </Card>
 

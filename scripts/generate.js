@@ -28,7 +28,7 @@ const generate = async images => {
       browser.newPage().then(async page => {
         const [width, height] = size.split('x').map(val => Number.parseInt(val))
 
-        await page.setViewport({ width, height, deviceScaleFactor: 1 })
+        await page.setViewport({ width, height, deviceScaleFactor: 2 })
 
         await page.goto(`http://localhost:${port}${url}`)
         await page.screenshot({ path: `./images/${fileName}.png` })
