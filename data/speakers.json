@@ -7,6 +7,14 @@
       "theme": "Путь Нео в react-native, красная или синяя, Mobx или Redux?",
       "description": "Расскажу про муки выбора библиотек для управления состоянием, какие есть особенности для react-native и что ждет разработчика который сделает свой выбор: неизвестностая иллюзия или правдивая реальность?",
       "avatar": "https://ucarecdn.com/ee6a5f55-8a0c-438b-8bd6-cca0ff0542ea/-/crop/300x300/-/format/auto/"
+    },
+    {
+      "name": "Виктор Вершанский",
+      "job": "uKit",
+      "short_theme": "Тонкости Mongoose",
+      "theme": "Тонкости Mongoose",
+      "description": "Познакомим слушателей с заложенными в Mongoose.js принципами работы с жизненными циклами однообразных, но разнородных структур данных.",
+      "avatar": "https://ucarecdn.com/1aadb4de-c0a2-4e54-839a-a40fe16fd73a/-/crop/300x300/-/format/auto/"
     }
   ]
 }
