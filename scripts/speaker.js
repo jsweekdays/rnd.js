@@ -1,9 +1,8 @@
 const generate = require('./generate')
+const {speakers} = require('../data/speakers.json')
 
-generate([
-  {
-    url: '/speaker',
-    fileName: 'speaker',
-    size: '1200x900'
-  }
-])
+generate(speakers.map((_, index) => ({
+  url: `/speaker?index=${index}`,
+  fileName: `speaker-${index}`,
+  size: '1200x900'
+})))
