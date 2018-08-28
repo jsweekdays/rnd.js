@@ -2,6 +2,7 @@ import React from 'react'
 import { Flex, Box } from 'grid-styled'
 import { ThemeProvider } from 'styled-components'
 import Image, { ColorMask } from '../components/Image'
+import Location from '../components/Location'
 import {
   BorderedText,
   Text,
@@ -34,7 +35,11 @@ const App = ({ speaker }) => (
                   gradient='linear-gradient(250deg, #FF3357 -10%, #6624FF 110%)'
                   mode='color'
                 >
-                  <Image src={speaker.avatar} width='208px' style={{filter: 'grayscale(100%)'}} />
+                  <Image
+                    src={speaker.avatar}
+                    width='208px'
+                    style={{ filter: 'grayscale(100%)' }}
+                  />
                 </ColorMask>
               </Box>
 
@@ -93,4 +98,12 @@ const App = ({ speaker }) => (
   </ThemeProvider>
 )
 
-export default () => <App speaker={data.speakers[0]} />
+export default () => (
+  <Location>
+    {({ query }) => {
+      const index = query ? query.index : 0
+
+      return <App speaker={data.speakers[index]} />
+    }}
+  </Location>
+)
