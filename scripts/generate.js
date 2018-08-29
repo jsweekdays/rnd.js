@@ -2,7 +2,7 @@ const handler = require('serve-handler')
 const puppeteer = require('puppeteer')
 const http = require('http')
 
-const serve = (port = 3000) =>
+const serve = (port = 5555) =>
   new Promise((resolve, reject) => {
     const server = http.createServer((request, response) => {
       return handler(request, response, {

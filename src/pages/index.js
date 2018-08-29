@@ -63,7 +63,7 @@ const App = () => (
                 fontSize={[36, 36, 64, 100]}
                 color='#6624FF'
               >
-                15:00
+                16:00
               </Text>
             </Box>
           </Flex>

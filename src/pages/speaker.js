@@ -52,7 +52,7 @@ const App = ({ speaker }) => (
 
                 <Box pt={15} pb={24}>
                   <Uppercase>
-                    <Text fontSize={16} lineHeight='24px'>
+                    <Text fontSize={20} lineHeight='24px'>
                       <Colorize color='#ff3357'>{speaker.job} /</Colorize>{' '}
                       {speaker.theme}
                     </Text>
@@ -63,7 +63,7 @@ const App = ({ speaker }) => (
 
             <Flex alignItems='center'>
               <Box flex='1'>
-                <Text fontSize={16} lineHeight='24px' maxWidth={300}>
+                <Text fontSize={18} lineHeight='24px' maxWidth={300}>
                   Ростов-на-Дону&nbsp;
                   <Colorize color='#FF3357'>/</Colorize> Суворова, 91
                   этаж&nbsp;7&nbsp;
@@ -86,7 +86,7 @@ const App = ({ speaker }) => (
 
                 <Box>
                   <Text fontWeight={900} fontSize={48} color='#6624FF'>
-                    15:00
+                    16:00
                   </Text>
                 </Box>
               </Flex>
