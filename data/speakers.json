@@ -15,6 +15,22 @@
       "theme": "Тонкости Mongoose",
       "description": "Познакомим слушателей с заложенными в Mongoose.js принципами работы с жизненными циклами однообразных, но разнородных структур данных.",
       "avatar": "https://ucarecdn.com/1aadb4de-c0a2-4e54-839a-a40fe16fd73a/-/crop/400x400/center/-/format/auto/"
+    },
+    {
+      "name": "Дмитрий Бережнов",
+      "job": "uKit",
+      "short_theme": "Как обработать данные логов на NodeJS",
+      "theme": "Как обработать данные логов на NodeJS и не умереть",
+      "description": "Почему NodeJS подоходит для обработки логов (ETL)? Плюсы и минусы использования. Распараллеливание без боли. RabbitMQ - наше всё!",
+      "avatar": "https://ucarecdn.com/91aedc0d-c1d3-4fb5-b471-4b5b15b29568/-/crop/400x400/center/-/format/auto/"
+    },
+    {
+      "name": "Марина Мошногорская",
+      "job": "Lodoss Team",
+      "short_theme": "Дуализм CouchDB: философия и база",
+      "theme": "Дуализм CouchDB: философия и база",
+      "description": "CouchDB - дитя веба, живое существо, которое развивается естественно, само по себе. Любить или бояться? Есть ли жизнь после установки? Поговорим о философии, о практике, посмотрим снаружи, заглянем внутрь.",
+      "avatar": "https://ucarecdn.com/a53ef626-8ccf-45a2-b11d-455447fa4b5f/-/crop/600x600/center/-/format/auto/"
     }
   ]
 }
